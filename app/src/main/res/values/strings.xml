@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Stoichiometry Calculator</string>
+    <string name="nextButton">Next</string>
+</resources>

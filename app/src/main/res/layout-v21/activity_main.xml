@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.prana_000.stoichiometrycalculator.MainActivity"
+    android:background="#bae7e7">
+
+    <TextView
+        android:id="@+id/enterTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="        Enter your chemical equation        "
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#122758"
+        android:textSize="25dp"
+        android:textStyle="bold|italic" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/chemRxn"
+        android:layout_below="@+id/enterTxt"
+        android:layout_centerHorizontal="true"
+        android:inputType="textNoSuggestions"
+        android:hint="Seperate compounds with a &quot;+&quot; sign and use &quot;=&quot; to separate reactants from products"
+        android:textSize="15dp"
+        android:paddingBottom="20dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="@string/nextButton"
+        android:id="@+id/nextButton"
+        android:background="#12197a"
+        android:textColor="#bdebe7"
+        android:textStyle="bold|italic"
+        android:nestedScrollingEnabled="true"
+        android:paddingBottom="0dp"
+        android:layout_below="@+id/chemRxn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:id="@+id/calcLayout"
+        android:visibility="visible"
+        android:layout_marginTop="33dp"
+        android:layout_below="@+id/nextButton"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+
+        <EditText
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/numberEntered"
+            android:visibility="visible"
+            android:layout_weight="0.18" />
+
+        <Spinner
+            android:layout_width="83dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstOptionSpinner"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_weight="0.09" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="OF"
+            android:id="@+id/firstOf"
+            android:visibility="visible"
+            android:paddingLeft="30dp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="67dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/firstCompoundSpinner"
+            android:spinnerMode="dropdown"
+            android:layout_weight="0.25"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="YIELDS"
+            android:id="@+id/yieldsLabel"
+            android:visibility="visible"
+            android:paddingRight="40dp"
+            android:paddingLeft="40dp"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_weight="0.06" />
+
+        <EditText
+            android:layout_width="52dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/calculatedValue"
+            android:visibility="visible"
+            android:layout_weight="0.16" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignEnd="@+id/calcLayout">
+
+        </LinearLayout>
+
+        <Spinner
+            android:layout_width="79dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondOptionSpinner"
+            android:spinnerMode="dropdown"
+            android:visibility="visible"
+            android:layout_weight="0.16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="OF"
+            android:id="@+id/secondOf"
+            android:visibility="visible"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/secondCompoundSpinner"
+            android:spinnerMode="dropdown"
+            android:layout_alignTop="@+id/calcLayout"
+            android:layout_toEndOf="@+id/enterTxt"
+            android:visibility="visible"
+            android:layout_weight="0.11" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET"
+        android:id="@+id/resetBtn"
+        android:textColor="#bdebe7"
+        android:background="#12197a"
+        android:textStyle="bold|italic"
+        android:visibility="visible"
+        android:layout_above="@+id/calculateButton"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CALCULATE"
+        android:id="@+id/calculateButton"
+        android:background="#db3b3b"
+        android:textColor="#f9f3f3"
+        android:textSize="13dp"
+        android:textStyle="bold|italic"
+        android:visibility="invisible"
+        android:nestedScrollingEnabled="true"
+        android:layout_above="@+id/infoButton"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Information"
+        android:id="@+id/infoButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        android:typeface="normal"
+        android:background="#000000"
+        android:textColor="#ffffff" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="Clear"
+        android:id="@+id/clearEqButton"
+        android:background="#17905c"
+        android:textColor="#bdebe7"
+        android:textStyle="bold|italic"
+        android:nestedScrollingEnabled="true"
+        android:paddingBottom="0dp"
+
+        android:layout_alignTop="@+id/nextButton"
+        android:layout_alignEnd="@+id/enterTxt" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:text="Copy"
+        android:id="@+id/copyToClipBoard"
+        android:background="#17905c"
+        android:textColor="#bdebe7"
+        android:textStyle="bold|italic"
+        android:nestedScrollingEnabled="true"
+        android:paddingBottom="0dp"
+
+        android:layout_above="@+id/calcLayout"
+        android:layout_alignStart="@+id/enterTxt" />
+
+</RelativeLayout>
